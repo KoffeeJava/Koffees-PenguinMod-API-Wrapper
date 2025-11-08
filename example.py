@@ -2,7 +2,7 @@
 
 import kpaw
 
-KPAW.setUserAndToken("koffeejava", "")
+kpaw.setUserAndToken("koffeejava", "")
 
-KPAW.getAmountMessage()
-print(f"Unread messages: {KPAW.Message_Amount}")
+kpaw.getUserMeta("koffeejava")
+print(kpaw.user_meta["bio"])

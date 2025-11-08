@@ -98,16 +98,43 @@ def getAmountMessage():
         print(f"Status code: {response.status_code}")
         print(f"Response from url: {Effect.BOLD}{Effect.UNDERLINE}{json.loads(response.content.decode())["error"]}{Effect.OFF}")
         
-    global Message_Amount
-    Message_Amount = json.loads(response.content.decode())["count"]
+    global message_amount
+    message_amount = json.loads(response.content.decode())["count"]
 
-# setUserAndToken("USERNAME", "TOKEN")
-# loveToggle("PROJECT-ID", "TOGGLE")
-# voteToggle("PROJECT-ID", "TOGGLE")
-# follow("TARGET", "TOGGLE")
-# featured()
-# featuredp lists all featured projects
-# getPfp("TARGET")
-# getThumb("PROJECT-ID")
-# getAmountMessage() Note: you can only see your own!
-# Message_Amount
+def registerView(ID): # This is experimental! May not work!
+    url = "https://projects.penguinmod.com/api/v1/projects/interactions/registerView"
+
+    data = f'{{"username":"koffeejava","token":"16e6c1430dcd17089b5328a5afcce010164fd978651371aa8f791466bf94e528","projectID":"0876643039"}}'
+    headers = {'Content-type': 'application/json'}
+    response = requests.post(url, headers=headers, data=data)
+
+    
+    if not response.status_code == 200:
+        print(f"{Color.RED}Something went wrong!")
+        print(f"Status code: {response.status_code}")
+        print(f"Response from url: {Effect.BOLD}{Effect.UNDERLINE}{json.loads(response.content.decode())["error"]}{Effect.OFF}")
+
+def getProjectMeta(ID):
+    url = f"https://projects.penguinmod.com/api/v1/projects/getproject?projectID={ID}&requestType=metadata"
+
+    response = requests.get(url)
+
+    if not response.status_code == 200:
+        print(f"{Color.RED}Something went wrong!")
+        print(f"Status code: {response.status_code}")
+        print(f"Response from url: {Effect.BOLD}{Effect.UNDERLINE}{json.loads(response.content.decode())["error"]}{Effect.OFF}")
+        
+    global project_meta
+    project_meta = json.loads(response.content.decode())
+def getUserMeta(target):
+    url = f"https://projects.penguinmod.com/api/v1/users/profile?target={target}&username={user}&token={token}"
+
+    response = requests.get(url)
+
+    if not response.status_code == 200:
+        print(f"{Color.RED}Something went wrong!")
+        print(f"Status code: {response.status_code}")
+        print(f"Response from url: {Effect.BOLD}{Effect.UNDERLINE}{json.loads(response.content.decode())["error"]}{Effect.OFF}")
+        
+    global user_meta
+    user_meta = json.loads(response.content.decode())
