@@ -1,4 +1,6 @@
 # Koffee's PenguinMod API Wrapper
+<img width="100" height="100" alt="kpaw-logo" src="https://github.com/user-attachments/assets/3f185a32-7210-4dcf-ab43-48ba0a11fd33" />
+
 KPAW is an api wrapper for PenguinMod made for python.
 
 I made this module because PenguinMod doesn't really have a public API
