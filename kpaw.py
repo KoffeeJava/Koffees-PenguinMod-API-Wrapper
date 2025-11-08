@@ -101,19 +101,6 @@ def getAmountMessage():
     global message_amount
     message_amount = json.loads(response.content.decode())["count"]
 
-def registerView(ID): # This is experimental! May not work!
-    url = "https://projects.penguinmod.com/api/v1/projects/interactions/registerView"
-
-    data = f'{{"username":"koffeejava","token":"16e6c1430dcd17089b5328a5afcce010164fd978651371aa8f791466bf94e528","projectID":"0876643039"}}'
-    headers = {'Content-type': 'application/json'}
-    response = requests.post(url, headers=headers, data=data)
-
-    
-    if not response.status_code == 200:
-        print(f"{Color.RED}Something went wrong!")
-        print(f"Status code: {response.status_code}")
-        print(f"Response from url: {Effect.BOLD}{Effect.UNDERLINE}{json.loads(response.content.decode())["error"]}{Effect.OFF}")
-
 def getProjectMeta(ID):
     url = f"https://projects.penguinmod.com/api/v1/projects/getproject?projectID={ID}&requestType=metadata"
 
