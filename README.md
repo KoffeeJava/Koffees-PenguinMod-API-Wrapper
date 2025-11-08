@@ -13,3 +13,6 @@ A little thing called inspect :)
 
 ## Whats the point?
 To have fun exploring what you can do with this API wrapper! You can grab pfps, follow people, Like, Vote/Favorite, and more!
+
+# Warning!
+I am not responsible for you getting banned for something stupid you did with this (eg, make a like/favorite bot) Be careful with your token! Don’t let ANYBODY else see or use it!
